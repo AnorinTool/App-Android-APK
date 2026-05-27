@@ -3,8 +3,12 @@ workflows:
     name: Android APK Build
 
     environment:
-      # Duy trì phiên bản Flutter SDK chính xác để tránh xung đột
+      # 1. Khai báo chính xác phiên bản Flutter SDK
       flutter: 3.41.7
+      # 2. Ép hệ thống sử dụng Java 17 (Tiêu chuẩn bắt buộc cho các bản Flutter/Flet mới)
+      java: 17
+      # 3. Chỉ định phiên bản Android SDK cần thiết để biên dịch ổn định
+      android_gradle: 8.0.2
 
     scripts:
       - name: Install Flet Dependencies
@@ -14,8 +18,8 @@ workflows:
 
       - name: Build APK
         script: |
-          # CHỈ ĐỊNH CHUẨN: Loại bỏ hoàn toàn --no-cache, giữ lại cờ tự động --yes
+          # Chạy lệnh build chuẩn hóa với cờ tự động chấp thuận
           flet build apk --yes
-          
+
     artifacts:
       - build/**/outputs/**/*.apk
