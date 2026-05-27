@@ -1,2 +1,5 @@
 flet
 uvicorn
+requests
+pillow
+base64
