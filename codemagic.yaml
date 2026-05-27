@@ -5,16 +5,18 @@ workflows:
     environment:
       flutter: stable
       java: 17
+      python: 3.11
 
     scripts:
-      - name: Install Flet Dependencies
+      - name: Install Dependencies
         script: |
           python3 -m pip install --upgrade pip
-          pip install flet flet-cli uvicorn requests pillow
+          pip install -r requirements.txt
+          pip install flet-cli
 
       - name: Build APK
         script: |
-          flet build apk --yes --verbose
+          flet build apk --org com.anorin --project anorintool --yes --verbose
 
     artifacts:
       - build/**/outputs/**/*.apk
