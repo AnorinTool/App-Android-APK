@@ -3,7 +3,7 @@ workflows:
     name: Android APK Build
 
     environment:
-      flutter: stable
+      flutter: 3.41.7
       java: 17
 
     scripts:
@@ -13,13 +13,9 @@ workflows:
           pip install -r requirements.txt
           pip install flet-cli
 
-      - name: Doctor Check
-        script: |
-          flet doctor
-
       - name: Build APK
         script: |
-          flet build apk --verbose
+          flet build apk --yes --verbose
 
     artifacts:
       - build/**/outputs/**/*.apk
