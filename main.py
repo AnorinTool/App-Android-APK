@@ -275,4 +275,3 @@ def main(page: ft.Page):
 if __name__ == "__main__":
     ft.app(target=main)
     
-    bây giờ URL https://e405114c-6fcf-4521-ba30-69b6267853de-00-33o3jhynmxpwo.spock.replit.dev:8000/ lại không tải được vào web á bạn 
