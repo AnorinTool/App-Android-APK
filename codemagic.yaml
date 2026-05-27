@@ -3,9 +3,7 @@ workflows:
     name: Android APK Build
 
     environment:
-      # 1. Chỉ định chính xác phiên bản Flutter SDK mà Flet yêu cầu
       flutter: 3.41.7
-      # 2. Sử dụng Java 17 (Cú pháp chuẩn được Codemagic chấp nhận)
       java: 17
 
     scripts:
@@ -16,8 +14,8 @@ workflows:
 
       - name: Build APK
         script: |
-          # 3. Thực thi lệnh build với cờ xác nhận tự động
-          flet build apk --yes
+          # Bổ sung tham số --verbose để ép hệ thống xuất toàn bộ log ẩn
+          flet build apk --yes --verbose
 
     artifacts:
       - build/**/outputs/**/*.apk
