@@ -3,17 +3,20 @@ workflows:
     name: Android APK Build
 
     environment:
-      flutter: stable
+      # 1. Ép cấu hình Codemagic cài đặt chính xác phiên bản Flutter mà Flet yêu cầu
+      flutter: 3.41.7
 
     scripts:
       - name: Install Flet
         script: |
           python3 -m pip install --upgrade pip
-          pip install flet
+          # Cài đặt flet và flet-cli để đảm bảo đầy đủ công cụ đóng gói
+          pip install flet flet-cli
 
       - name: Build APK
         script: |
-          flet build apk
+          # 2. Bổ sung tham số --yes để bypass qua tất cả các câu hỏi xác nhận tự động
+          flet build apk --yes
 
     artifacts:
       - build/**/outputs/**/*.apk
