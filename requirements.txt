@@ -3,3 +3,4 @@ uvicorn
 requests
 pillow
 base64
+flet==0.28.3
