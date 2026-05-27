@@ -1,6 +1,3 @@
-flet
-uvicorn
+flet==0.28.3
 requests
 pillow
-base64
-flet==0.28.3
