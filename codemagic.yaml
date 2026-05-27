@@ -3,6 +3,7 @@ workflows:
     name: Android APK Build
 
     environment:
+      # Duy trì phiên bản Flutter SDK chính xác để tránh xung đột
       flutter: 3.41.7
 
     scripts:
@@ -13,8 +14,8 @@ workflows:
 
       - name: Build APK
         script: |
-          # Bổ sung thêm cờ --no-cache để ép hệ thống xóa bỏ bản dịch lỗi cũ
-          flet build apk --yes --no-cache
-
+          # CHỈ ĐỊNH CHUẨN: Loại bỏ hoàn toàn --no-cache, giữ lại cờ tự động --yes
+          flet build apk --yes
+          
     artifacts:
       - build/**/outputs/**/*.apk
