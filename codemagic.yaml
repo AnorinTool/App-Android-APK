@@ -3,7 +3,7 @@ workflows:
     name: Android APK Build
 
     environment:
-      flutter: 3.41.7
+      flutter: stable
       java: 17
 
     scripts:
@@ -14,7 +14,6 @@ workflows:
 
       - name: Build APK
         script: |
-          # Bổ sung tham số --verbose để ép hệ thống xuất toàn bộ log ẩn
           flet build apk --yes --verbose
 
     artifacts:
