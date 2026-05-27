@@ -7,6 +7,15 @@ workflows:
       java: 17
 
     scripts:
+      - name: Initialize Android & Flutter Environment
+        script: |
+          # 1. Ép hệ thống chấp nhận các điều khoản của Android SDK trước
+          yes | sdkmanager --licenses || true
+          
+          # 2. Chạy Flutter Doctor trực tiếp từ hệ thống Codemagic để kích hoạt môi trường
+          flutter doctor --android-licenses
+          flutter doctor
+
       - name: Install Flet Dependencies
         script: |
           python3 -m pip install --upgrade pip
@@ -14,8 +23,8 @@ workflows:
 
       - name: Build APK
         script: |
-          # Bổ sung tham số --verbose để ép hệ thống xuất toàn bộ log ẩn
-          flet build apk --yes --verbose
-
+          # 3. Sử dụng lệnh build thuần túy sau khi môi trường đã được thông suốt
+          flet build apk --yes
+          
     artifacts:
       - build/**/outputs/**/*.apk
