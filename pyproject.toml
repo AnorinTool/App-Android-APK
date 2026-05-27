@@ -1,11 +1,23 @@
 [project]
 name = "anorin-tool"
 version = "1.0.0"
+description = "An Orin Tool"
+requires-python = ">=3.10"
+
+dependencies = [
+    "flet",
+    "uvicorn"
+]
 
 [tool.flet]
 org = "com.anorin"
 product = "An Orin Tool"
+company = "An Orin"
+copyright = "Copyright (C) 2026 by An Orin"
+
+[tool.flet.app]
+path = "."
 
 [tool.flet.android]
-min_sdk_version = 24
+min_sdk_version = 21
 target_sdk_version = 34
