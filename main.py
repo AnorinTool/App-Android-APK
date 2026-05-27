@@ -1,4 +1,3 @@
-tôi đã thử với code dưới đây 
 import flet as ft
 import uvicorn
 import base64
