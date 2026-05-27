@@ -1,17 +1,21 @@
 workflows:
+  android-workflow:
+    name: Android APK Build
 
-    android-workflow-id:
+    environment:
+      flutter: 3.41.7
+      java: 17
 
-        name: Android Sample Workflow
+    scripts:
+      - name: Install Flet Dependencies
+        script: |
+          python3 -m pip install --upgrade pip
+          pip install flet flet-cli uvicorn requests pillow
 
-        # .......    
+      - name: Build APK
+        script: |
+          # Bổ sung tham số --verbose để ép hệ thống xuất toàn bộ log ẩn
+          flet build apk --yes --verbose
 
-        # .......
-
-        # .......  
-
-    ios-workflow-id:
-
-        name: iOS Sample Workflow
-
-        # ......
+    artifacts:
+      - build/**/outputs/**/*.apk
