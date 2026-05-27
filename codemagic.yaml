@@ -1,0 +1,19 @@
+workflows:
+  android-workflow:
+    name: Android APK Build
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - name: Install Flet
+        script: |
+          python3 -m pip install --upgrade pip
+          pip install flet
+
+      - name: Build APK
+        script: |
+          flet build apk
+
+    artifacts:
+      - build/**/outputs/**/*.apk
