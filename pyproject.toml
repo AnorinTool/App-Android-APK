@@ -1,7 +1,6 @@
 [project]
 name = "anorintool"
 version = "1.0.0"
-description = "An Orin Tool"
 
 dependencies = [
     "flet==0.28.3",
@@ -12,5 +11,7 @@ dependencies = [
 [tool.flet]
 org = "com.anorin"
 product = "An Orin Tool"
-company = "An Orin"
-copyright = "Copyright (C) 2026 by An Orin"
+app_icon = "assets/icon.png"
+
+[tool.flet.android]
+adaptive_icon_background = "#0d0d0d"
