@@ -13,9 +13,13 @@ workflows:
           pip install -r requirements.txt
           pip install flet-cli
 
+      - name: Doctor Check
+        script: |
+          flet doctor
+
       - name: Build APK
         script: |
-          flet build apk --org com.anorin --project anorintool --yes --verbose
+          flet build apk --verbose
 
     artifacts:
       - build/**/outputs/**/*.apk
