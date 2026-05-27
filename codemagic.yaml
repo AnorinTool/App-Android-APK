@@ -5,7 +5,6 @@ workflows:
     environment:
       flutter: stable
       java: 17
-      python: 3.11
 
     scripts:
       - name: Install Dependencies
